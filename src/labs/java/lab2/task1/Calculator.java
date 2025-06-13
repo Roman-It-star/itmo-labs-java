@@ -35,21 +35,21 @@ public class Calculator {
     }
 
     //деление
-    public int divide(int a, int b){
+    public double divide(int a, int b){
         if (b == 0){
             System.out.println("На ноль делить нельзя");
             return 0;
         }
-        return a / b;
+        return (double) a / b;
     }
     public double divide(double a, double b){
         return a / b;
     }
-    public long divide(long a, long b){
+    public double divide(long a, long b){
         if (b == 0){
             System.out.println("На ноль делить нельзя");
             return 0;
         }
-        return a / b;
+        return (double) a / b;
     }
 }
