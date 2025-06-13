@@ -15,7 +15,7 @@ public class Main {
 
         System.out.print("Выберите операцию (+, -, *, /): ");
         String operation = scanner.next();
-        int result = 0;
+        double result = 0;
 
         switch (operation){
             case "+":
