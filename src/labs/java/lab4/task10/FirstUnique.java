@@ -1,18 +1,18 @@
 package labs.java.lab4.task10;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
-public class FirstUnique {public static void main(String[] args) {
-    int[] arr = readArrayFromUser();
-    Integer unique = findFirstUnique(arr);
+public class FirstUnique {
 
-    if (unique != null) {
-        System.out.println("Первое уникальное число: " + unique);
-    } else {
-        System.out.println("Уникальных чисел не найдено");
+    public static void main(String[] args) {
+        int[] arr = readArrayFromUser();
+        Integer unique = findFirstUnique(arr);
+
+        if (unique != null) {
+            System.out.println("Первое уникальное число: " + unique);
+        } else {
+            System.out.println("Уникальных чисел не найдено");
+        }
     }
-}
 
     public static int[] readArrayFromUser() {
         Scanner scanner = new Scanner(System.in);
@@ -30,18 +30,21 @@ public class FirstUnique {public static void main(String[] args) {
         for (int i = 0; i < n; i++) {
             arr[i] = scanner.nextInt();
         }
+        // не закрываем scanner, чтобы не мешать другим вводам
         return arr;
     }
 
     public static Integer findFirstUnique(int[] arr) {
-        Map<Integer, Integer> freq = new HashMap<>();
-        for (int num : arr) {
-            freq.put(num, freq.getOrDefault(num, 0) + 1);
-        }
-
-        for (int num : arr) {
-            if (freq.get(num) == 1) {
-                return num;
+        for (int i = 0; i < arr.length; i++) {
+            boolean isUnique = true;
+            for (int j = 0; j < arr.length; j++) {
+                if (i != j && arr[j] == arr[i]) {
+                    isUnique = false;
+                    break;
+                }
+            }
+            if (isUnique) {
+                return arr[i];
             }
         }
         return null;
