@@ -11,9 +11,10 @@ public class Main {
         System.out.println("Палиндром: " + PalindromeChecker.isPalindrome(word));
 
         // Задача 3
-        String text3 = InputReader.readLine("Введите текст для цензуры 'бяка':");
-        System.out.println(Censor.censor(text3));
-
+        String text3       = InputReader.readLine("Введите текст для цензуры:");
+        String target      = InputReader.readLine("Введите слово для замены:");
+        String replacement = InputReader.readLine("Введите строку-замену:");
+        System.out.println("Результат: " + Censor.censor(text3, target, replacement));
         // Задача 4
         String mainStr = InputReader.readLine("Введите основную строку:");
         String subStr = InputReader.readLine("Введите подстроку для поиска вхождений:");
